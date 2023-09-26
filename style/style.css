@@ -166,6 +166,10 @@ h1, h2, h3, h4, h5, h6 {
 .header-add {
   background-color: #000;
   color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .header-add a {
   color: #FFFFFF;
@@ -239,6 +243,13 @@ h1, h2, h3, h4, h5, h6 {
   gap: 26px;
 }
 
+header {
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 header .header .info-block {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -254,6 +265,19 @@ header .header .info-block .item.category ul {
   display: flex;
   align-items: center;
   gap: 25px;
+}
+header .header .info-block .item.category ul li {
+  display: block;
+  position: relative;
+}
+header .header .info-block .item.category ul li.active::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
 }
 header .header .info-block .item.logoBlock {
   width: 240px;
@@ -294,4 +318,29 @@ header .header .info-block .item.functions ul li a .icon img {
 header .header .info-block .item.functions ul li a span {
   display: block;
   text-transform: uppercase;
+}
+
+.header-category {
+  background-color: #F9F9F9;
+}
+.header-category .header-categoryBlock {
+  padding: 17px 0;
+}
+.header-category .header-categoryBlock ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px 25px;
+  flex-wrap: wrap;
+}
+.header-category .header-categoryBlock ul li.active a, .header-category .header-categoryBlock ul li:hover a {
+  color: #EB5757;
+}
+.header-category .header-categoryBlock ul li a {
+  display: block;
+}
+
+main {
+  height: 200vh;
 }/*# sourceMappingURL=style.css.map */
