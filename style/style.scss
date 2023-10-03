@@ -36,6 +36,7 @@ $font_1:  font-family 'Grtsk Peta';
     --fz14: 14px;
     --fz8: 8px;
     --fz48: 48px;
+    --fz32: 32px;
 
 }
 body {
@@ -62,6 +63,9 @@ a:hover i {
 }
 section {
     padding: 50px 0;
+}
+.pt-mini {
+    padding-top: 25px!important;
 }
 .pt0 {
     padding-top: 0!important;
@@ -129,7 +133,7 @@ ul {
     color: $black;
     text-transform: uppercase;
     &:hover {
-        background-color: $white;
+        background-color: $dgrey;
         color: $black;
         i {
             color: $white;
@@ -326,7 +330,6 @@ header {
     }
 }
 .header-category {
-    margin-bottom: 25px;
     background-color: $lgrey;
     .header-categoryBlock {
         padding: 17px 0;
@@ -433,4 +436,108 @@ header {
             }
         }
     }
+}
+
+.newProductSection {
+    .newProductBlock {
+        .slider-block {
+            position: relative;
+            .swiper {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        .img {
+                            background-color: $lgrey;
+                            height: 270px;
+                            padding: 45px 25px 55px;
+                            img {
+                                object-fit: contain;
+                            }
+                        }
+                        .favourites {
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                        }
+                        .inforamtion {
+                            padding-top: 10px;
+                            background-color: $white;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            .name-category {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                                .name {
+                                    text-transform: uppercase;
+                                    font-size: var(--fz16);
+                                    font-weight: 500;
+                                }
+                                .category {
+                                    font-weight: 500;
+                                    color: $dgrey;
+
+                                }
+                            }
+                            .price {
+                                font-size: var(--fz18);
+                                font-weight: 500;
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                span {
+                                    display: block;
+                                    &.new {
+                                        color: $red;
+                                    }
+                                    &.old {
+                                        position: relative;
+                                        &::before {
+                                            content: '';
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 0;
+                                            transform: translateY(-50%);
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .btn-block {
+            margin-top: 77px;
+            display: flex;
+            justify-content: center;
+            .btn {
+                width: fit-content;
+                color: $white;
+            }
+        }
+    }
+}
+._title {
+    font-size: (var(--fz32));
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: $black;
+    &::after {
+        font-size: 20px;
+    }
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: -45px;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: -45px;
 }
