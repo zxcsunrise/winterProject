@@ -34,7 +34,9 @@ $font_1:  font-family 'Grtsk Peta';
     --fz18: 18px;
     --fz16: 16px;
     --fz14: 14px;
-    --fz8: 8px
+    --fz8: 8px;
+    --fz48: 48px;
+
 }
 body {
     background-color: $white;
@@ -59,7 +61,7 @@ a:hover i {
     color: rgba(14, 14, 14, 0.7);
 }
 section {
-    padding-bottom: 120px;
+    padding: 50px 0;
 }
 .pt0 {
     padding-top: 0!important;
@@ -171,6 +173,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 11;
     a {
         color: $white;
     }
@@ -247,6 +250,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 30;
     .header {
         .info-block {
             display: grid;
@@ -322,6 +326,7 @@ header {
     }
 }
 .header-category {
+    margin-bottom: 25px;
     background-color: $lgrey;
     .header-categoryBlock {
         padding: 17px 0;
@@ -346,6 +351,86 @@ header {
         }
     }
 }
-main {
-    height: 200vh;
+
+.sliderMainSection {
+    .sliderMainBlock {
+        .swiper {
+            .swiper-wrapper {
+                height: 480px;
+                .swiper-slide {
+                    position: relative;
+                    .desc {
+                        position: absolute;
+                        bottom: 76px;
+                        left: 0;
+                        padding: 16px 38px 16px 30px;
+                        background-color: $black;
+                        color: $white;
+                        font-size: var(--fz48);
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+            }
+            .swiper-button-next, .swiper-button-prev {
+                color: $black;
+                padding: 37px 10px;
+                background-color: $lgrey;
+                &::after {
+                    font-size: 22px;
+                }
+                .swiper-button-next, .swiper-rtl .swiper-button-prev {
+                    right: 0;
+                }
+                .swiper-button-prev, .swiper-rtl .swiper-button-next {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.brandSection {
+    .brandBlock {
+        .info-block {
+            // display: flex;
+            // flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+            gap: 20px;
+            opacity: .8;
+            .item {
+                height: 70px;
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+.stocksSection {
+    .stocksBlock {
+        .info-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+            gap: 10px;
+            .item {
+                max-width: 667px;
+                img {
+                    height: 270px;
+                }
+                p {
+                    display: block;
+                    width: 100%;
+                    color: $white;
+                    background-color: $black;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    text-align: center;
+                    padding: 22px 30px;
+                    font-size: var(--fz22);
+                }
+            }
+        }
+    }
 }
