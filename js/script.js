@@ -293,3 +293,11 @@ function infoOpenModal(elem) {
     maskField()
     $('#infoModal').modal('show')
 }
+
+$('footer .logo').on('click', function () {
+   test('zalupa', $(this))
+})
+
+function test (dataForm, el) {
+    alert(dataForm);
+}
