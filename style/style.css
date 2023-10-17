@@ -1004,4 +1004,8 @@ footer .footer_3 .copyright {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.error {
+  border: #EB5757;
 }/*# sourceMappingURL=style.css.map */

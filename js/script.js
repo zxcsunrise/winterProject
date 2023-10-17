@@ -302,6 +302,7 @@ function test (dataForm, el) {
     alert(dataForm);
 }
 $('form input').on('input', function() {
+    
     // if ($(this).val().length > 0) {
     //     $(this).removeClass('error')
     // } else {
