@@ -19,37 +19,38 @@ new Swiper(".mainSlider", {
     spaceBetween: 25,
     centeredSlides: true,
     loop: true,
-    navigation: {    
+    navigation: {
       nextEl: ".mainSlider .swiper-button-next",
       prevEl: ".mainSlider .swiper-button-prev",
     },
 });
+
 new Swiper(".newProductSlider", {
     slidesPerView: 4,
     spaceBetween: 25,
     loop: true,
-    navigation: {    
+    navigation: {
       nextEl: ".newProductSection .swiper-button-next",
       prevEl: ".newProductSection .swiper-button-prev",
     },
 });
+
 new Swiper(".popularProductSlider", {
     slidesPerView: 4,
     spaceBetween: 25,
     loop: true,
-    navigation: {    
+    navigation: {
       nextEl: ".popularProductSection .swiper-button-next",
       prevEl: ".popularProductSection .swiper-button-prev",
     },
 });
+
 new Swiper(".blogSlider", {
     slidesPerView: 1.1,
-    spaceBetween: 25,
     loop: true,
-    centeredSlides: true,
-    navigation: {    
-      nextEl: ".blogSection .swiper-button-next",
-      prevEl: ".blogSection .swiper-button-prev",
+    navigation: {
+      nextEl: ".blogSlider .swiper-button-next",
+      prevEl: ".blogSlider .swiper-button-prev",
     },
 });
 
@@ -186,6 +187,7 @@ function checkField(el) {
     }
     if ($(el.target).parents('form').find('.error').length == 0) {
         sendAjax(field, el)
+        clearFields()
     }
 }
 
@@ -234,6 +236,9 @@ function sendAjax(dataForm, el) {
         contentType: 'application/json',
         success: function (response) {
             clearFields()
+            if (response.error) {
+                $('.message').html(response.message)
+            }
         },
         error: function (error) {
             console.log(error)
@@ -275,37 +280,125 @@ function infoOpenModal(elem) {
         bodyText = $('.modal#infoModal .modal-body')
     titleText.html('')
     bodyText.html('')
-    if (type == 'type-1') {
+    if (type === 'type-1') {
         titleText.html(`
-            <div class="h1 _title36 modal-title" id="exampleModalLabel">Заказать обратный звонок</div>
+            <div class="modal-title center">Чтобы воспользоваться быстрым бронированием выполните вход или зарегистрируйтесь на сайте</div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
         `)
         bodyText.html(`
-            <form class="application-block">
-                <input type="phone" class="mask-phone" placeholder="Номер телефона" name="phone">
-                <div class="desc">Нажимая кнопку “Отправить” вы даете согласие на обработку персональных данных</div>
-                <div class="btn-block">
-                    <div class="btn btnBlack checkField" data-create="feedback_request" data-request="success-modal">Отправить</div>
-                </div>
-            </form>
-        `)
+        <div class="info-block">
+            <div class="item">
+                <div class="name">Вход</div>
+                <form class="application-block">
+                    <label class="field">
+                        <span>Номер телефона или email</span>
+                        <input name="name_email" type="text">
+                    </label>
+                    <label class="field">
+                        <span>Пароль</span>
+                        <input name="password" type="password">
+                    </label>
+                    <div class="fb">
+                        <div class="field-block">
+                            <label class="checkbox-block">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="check">
+                                    <div>
+                                        <svg viewBox="0,0,50,50">
+                                            <path d="M5 30 L 20 45 L 45 5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Запомнить меня</span>
+                            </label>
+                            <a href="#" class="recover-pass">Забыли пароль?</a>
+                        </div>
+                        <div class="btn checkField">Войти</div>
+                    </div>
+                </form>
+            </div>
+            <div class="item">
+                <div class="name">Регистрация</div>
+                <form class="application-block">
+                    <label class="field">
+                        <span>Имя*</span>
+                        <input name="name" type="text">
+                    </label>
+                    <label class="field">
+                        <span>Email</span>
+                        <input name="email" type="text">
+                    </label>
+                    <label class="field">
+                        <span>Номер телефона*</span>
+                        <input name="phone" type="text" class="mask-phone">
+                    </label>
+                    <div class="fb">
+                        <label class="checkbox-block">
+                            <div class="checkbox">
+                                <input type="checkbox" id="check" checked" name="rules">
+                                <div>
+                                    <svg viewBox="0,0,50,50">
+                                        <path d="M5 30 L 20 45 L 45 5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span>Вы соглашаетесь с правилами</span>
+                        </label>
+                        <div class="btn white border checkField">Зарегистрироваться</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `)
     }
+
+
     maskField()
     $('#infoModal').modal('show')
 }
 
-$('footer .logo').on('click', function () {
-   test('zalupa', $(this))
-})
+// $('footer .logo').on('click', function(elem) {
+//     test('222', elem)
+// })
 
-function test (dataForm, el) {
-    alert(dataForm);
-}
-$('form input').on('input', function() {
-    
-    // if ($(this).val().length > 0) {
-    //     $(this).removeClass('error')
-    // } else {
-    //     $(this).addClass('error')
-    // }
-})
+// $('footer .logo').hover(function(elem) {
+//     test('', $(this))
+// })
+
+
+// $(this) == $('footer .logo')
+
+
+// function test(dataForm, el) {
+//     // $(el).css({
+//     //     'background-color': '#ffffff'
+//     // })
+//     $(el).animate({
+//         marginLeft: '+=50px',
+//         opacity: '+=0.25'
+//     }, 1000)
+// }
+
+// $('form input').on('input', function() {
+//     let s = $(this),
+//         s_clear = $.trim($(s).val())
+
+//     if (s_clear.length > 0) {
+//         $(this).removeClass('error')
+//     } else {
+//         $(this).addClass('error')
+//     }
+// })
+// $('form select').on('change', function() {
+//     let value = $(this).val()
+
+//     if (value > 5) {
+//         console.log(1);
+//     } else if (value == 1) {
+//         console.log(3);
+//     } else if (value == 'gdsgdfgdf') {
+//         $(this).after('<div class="btn open-modal" data-type-modal="test">Open Modal</div>')
+//     } else {
+//         console.log(2);
+//     }
+// })
