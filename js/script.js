@@ -302,7 +302,7 @@ function infoOpenModal(elem) {
                         <div class="field-block">
                             <label class="checkbox-block">
                                 <div class="checkbox">
-                                    <input type="checkbox" id="check">
+                                    <input type="checkbox" id="check" >
                                     <div>
                                         <svg viewBox="0,0,50,50">
                                             <path d="M5 30 L 20 45 L 45 5"></path>
@@ -351,7 +351,6 @@ function infoOpenModal(elem) {
         </div>
     `)
     }
-
 
     maskField()
     $('#infoModal').modal('show')
@@ -402,3 +401,84 @@ function infoOpenModal(elem) {
 //         console.log(2);
 //     }
 // })
+
+$(document).on('click', '[data-tab]', function() {
+    let id = $(this).attr('data-tab'),
+        content = $(this).parents('.tab-list').find(`.list ul[data-tab='${id}']`)
+    $(this).parents('.tab-list').find(`.list ul.active`).removeClass('active')
+    $(this).parents('.tab-list').find(`.name-block-main span.active`).removeClass('active')
+    content.addClass('active')
+    $(this).addClass('active')
+})
+
+let myMap
+
+let myModalEl = document.getElementById('mapModal')
+myModalEl.addEventListener('shown.bs.modal', function (event) {
+    ymaps.ready(init);
+})
+myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    myMap.destroy()
+})
+
+async function init() {
+    let center = [53.50425306146371, 49.300817274648665];
+    let e;
+    if ($("#map").data("coord")) {
+        e = JSON.parse($("#map").data("coord").replace(/"/g, '\\"').replace(/'/g, '"').replace(/False/g, false).replace(/True/g, true).replace(/None/g, null));
+    } else {
+        e = '';
+    }
+    let all_branches = e;
+    myMap = new ymaps.Map("map", {
+        center: center,
+        zoom: 5,
+        controls: ['zoomControl'],
+        minZoom: 8,
+    });
+
+    let clusterer = new ymaps.Clusterer({
+        clusterDisableClickZoom: false,
+        gridSize: 32,
+    });
+
+    let minLat = Number.MAX_VALUE;
+    let maxLat = Number.MIN_VALUE;
+    let minLng = Number.MAX_VALUE;
+    let maxLng = Number.MIN_VALUE;
+
+    for (let cityData of all_branches) {
+        for (let point of cityData.points) {
+            let coords = point.coordinate.split(',');
+            let lat = parseFloat(coords[0]);
+            let lng = parseFloat(coords[1]);
+            clusterer.add(
+                new ymaps.Placemark(coords, {
+                    balloonContentHeader: `<span>Стоянка на ${point.address}</span>`,
+                    balloonContentBody: `<span>Город: ${point.city}</span><br><span>Адрес: ${point.address}</span><br>${point.phone ? `<span>Телефон: <a href="tel:${point.phone}">${point.phone}</a></span>` : ''}`
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#0095b6'
+                })
+            );
+            // Обновляем границы области с учетом текущей точки
+            minLat = Math.min(minLat, lat);
+            maxLat = Math.max(maxLat, lat);
+            minLng = Math.min(minLng, lng);
+            maxLng = Math.max(maxLng, lng);
+        }
+    }
+
+    myMap.geoObjects.add(clusterer);
+
+    if (clusterer.getGeoObjects().length > 1) {
+        // Вычисляем оптимальный уровень приближения (zoom) для отображения всех точек
+        myMap.setBounds([[minLat, minLng], [maxLat, maxLng]], {
+            checkZoomRange: true, // Учитываем ограничения на максимальный и минимальный zoom
+        });
+    } else {
+        let coords = clusterer.getGeoObjects()[0].geometry.getCoordinates();
+        myMap.setZoom(14);
+        myMap.setCenter(coords);
+    }
+}
