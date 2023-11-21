@@ -1283,3 +1283,259 @@ footer {
         }
     }
 }
+
+.stocksMiniSection {
+    background-color: $black;
+    .stockMiniBlock {
+        .breadcrumbs {
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                gap: 10px 22px;
+                font-size: var(--fz12);
+                li {
+                    position: relative;
+                    &:not(:last-of-type)::before {
+                        content: '/';
+                        position: absolute;
+                        top: 50%;
+                        right: -14px;
+                        font-size: var(--fz12);
+                        transform: translateY(-50%);
+                        color: $white;
+
+                    }
+                    >a {
+                        color: $white;
+                        display: block;
+                        &:hover {
+                            color: $white;
+                            opacity: .7;
+                        }
+                    }
+                }
+            }
+        }
+        .info-block {
+            margin-top: 44px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px 27px;
+            .item {
+                .img {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        display: block;
+                        padding-bottom: 43.75%;
+                    }
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                .name {
+                    font-size: var(--fz21);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+.categoryMiniSection {
+    .categoryMiniBlock {
+        position: relative;
+        .swiper {
+            .swiper-wrapper {
+                .swiper-slide {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover {
+                        img {
+                            background-color: $gray;
+                        }
+                    }
+                    .img {
+                        width: 100%;
+                        position: relative;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        background-color: $lgrey;
+                        &::before {
+                            content: '';
+                            display: block;
+                            padding-bottom: 100%;
+                        }
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            padding: 17px;
+                            object-fit: contain;
+                            transition: all .3s;
+                        }
+                    }
+                    .name {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 30px;
+        }
+        .swiper-button-prev {
+            left: 0px;
+        }
+        .swiper-button-next {
+            right: 0;
+        }
+    }
+}
+
+.catalogSection {
+    .catalogBlock {
+        .title {
+            font-size: var(--fz32);
+            font-weight: 700;
+            display: flex;
+            margin-bottom: 50px;
+            &::after {
+                content: attr(data-count);
+                display: block;
+                font-size: var(--fz16);
+                color: $dgrey;
+                font-weight: 700;
+            }
+        }
+        .add {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            .filter-mini {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                .item {
+                    display: flex;
+                    gap: 10px 21px;
+                    border: 1px solid $dgrey;
+                    padding: 20px;
+                    align-items: center;
+                    }
+                    .name {
+                        font-size: fz16;
+                        font-weight: 500;
+                    }
+                    .icon {
+                        width: 40px;
+                        height: 35px;
+                        img {
+                            object-fit: contain; 
+                        }
+                       
+                    }
+                    .nv {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        .variants {
+                            display: flex;
+                            gap: 10px 12px;
+                            .item_a {
+                                position: relative;
+                                .name {
+                                    font-size: var(--fz12);
+                                    font-weight: 500;
+                                    text-decoration: underline;
+                                    > span {
+                                        cursor: pointer;
+                                    }
+                                    &:hover {
+                                        & > ul {
+                                            visibility: inherit;
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                                ul {
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    position: absolute;
+                                    left: 0;
+                                    width: 222px;
+                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                                    padding: 0;
+                                    margin: 0;
+                                    list-style: none;
+                                    z-index: 1;
+                                    padding-top: 5px;
+                                    transition: all .3s;
+                                    li {
+                                        border-left: 1px solid $grey;
+                                        border-right: 1px solid $grey;
+                                        background-color: $white;
+                                        font-size: var(--fz12);
+                                        font-weight: 500;
+                                        padding: 7px 20px;
+                                        cursor: pointer;
+                                        &:hover, &.active {
+                                            background-color: $grey;
+                                        }
+                                        &:first-of-type {
+                                            padding-top: 15px;
+                                            border-top: 1px solid $grey;
+                                        }
+                                        &:last-of-type {
+                                            padding-bottom: 15px;
+                                            border-bottom: 1px solid $grey;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .filter-mini-2 {
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                    gap: 25px;
+                   > .btn-block {
+                   width: 100%;
+                    &.visible {
+                            .btn {
+                                background-color: $lgrey;
+                                color: $black;
+                                display: flex;
+                                gap: 10px 57px;
+                                justify-content: flex-start;
+                            }
+                        }
+                   }
+                   .sort {
+                    display: flex;
+                    align-items: center;
+                    grid-column: 2/-1;
+                    justify-content: flex-end;
+                    gap: 10px 15px;
+                    span {
+                        color: $dgrey;
+                    }
+                    .select {
+                        min-width: 320px;
+                        select {
+                            background-color: $lgrey;
+                            border: 0;
+                            padding: 15px 15px;
+                        }
+                    }
+                   }
+                }
+            }
+        }
+    }
