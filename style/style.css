@@ -1384,10 +1384,10 @@ footer .footer .footer_3 .desc {
   font-size: 30px;
 }
 .categoryMiniSection .categoryMiniBlock .swiper-button-prev {
-  left: 0px;
+  left: -45px;
 }
 .categoryMiniSection .categoryMiniBlock .swiper-button-next {
-  right: 0;
+  right: -45px;
 }
 
 .catalogSection .catalogBlock .title {
@@ -1415,6 +1415,7 @@ footer .footer .footer_3 .desc {
 .catalogSection .catalogBlock .add .filter-mini .item {
   display: flex;
   gap: 10px 21px;
+  justify-content: space-between;
   border: 1px solid #828B8D;
   padding: 20px;
   align-items: center;

@@ -59,9 +59,18 @@ new Swiper(".categorySlider", {
     spaceBetween: 30,
     navigation: {
       nextEl: ".categoryMiniSection .swiper-button-next",
-      prevEl: ".categoryMiniSection.swiper-button-prev",
+      prevEl: ".categoryMiniSection .swiper-button-prev",
     },
 });
+
+$(document).ready(function() {
+    $('btn').click(function() {
+      $(this).addClass('visible');
+    });
+  
+    // Здесь будет логика фильтрации товаров по выбранным категориям и цене 
+  });
+
 
 $(document).on('click', '.checkField', function (el) {
   el.preventDefault();
@@ -498,3 +507,4 @@ $('.variants .item_a ul li').on('click',function() {
     $(this).parents('ul').find('li').removeClass('active');
     $(this).addClass('active');  
   });
+

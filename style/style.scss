@@ -1391,10 +1391,10 @@ footer {
             font-size: 30px;
         }
         .swiper-button-prev {
-            left: 0px;
+            left: -45px;
         }
         .swiper-button-next {
-            right: 0;
+            right: -45px;
         }
     }
 }
@@ -1424,6 +1424,7 @@ footer {
                 .item {
                     display: flex;
                     gap: 10px 21px;
+                    justify-content: space-between;
                     border: 1px solid $dgrey;
                     padding: 20px;
                     align-items: center;
