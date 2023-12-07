@@ -64,11 +64,15 @@ new Swiper(".categorySlider", {
 });
 
 $(document).ready(function() {
-    $('btn').click(function() {
-      $(this).addClass('visible');
+    $('.btn').click(function() {
+      $('.filter-options').slideToggle();
+      $('.btn-block').addClass('visible')
     });
+  });
   
-    // Здесь будет логика фильтрации товаров по выбранным категориям и цене 
+
+$('.btn').on('click',function() {
+    $('btn-block').removeClass('visible');
   });
 
 

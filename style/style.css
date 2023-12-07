@@ -1390,6 +1390,9 @@ footer .footer .footer_3 .desc {
   right: -45px;
 }
 
+.catalogSection {
+  padding-bottom: 100px;
+}
 .catalogSection .catalogBlock .title {
   font-size: var(--fz32);
   font-weight: 700;
@@ -1505,6 +1508,49 @@ footer .footer .footer_3 .desc {
   gap: 10px 57px;
   justify-content: flex-start;
 }
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container {
+  border: 0;
+  position: relative;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options {
+  margin-top: 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+  border: 0;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #CED4D7;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options span {
+  font-size: 16px;
+  font-weight: 500px;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options .filter-option {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 15px;
+  margin-top: 15px;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options .filter-option .checkbox {
+  padding: 0;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+}
+.catalogSection .catalogBlock .add .filter-mini-2 > .btn-block .filter-container .filter-options .filter-option .checkbox:checked + label {
+  color: #EB5757;
+}
 .catalogSection .catalogBlock .add .filter-mini-2 .sort {
   display: flex;
   align-items: center;
@@ -1522,4 +1568,156 @@ footer .footer .footer_3 .desc {
   background-color: #F9F9F9;
   border: 0;
   padding: 15px 15px;
+}
+
+.cardSection .cardBlock .breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px 22px;
+  font-size: var(--fz12);
+}
+.cardSection .cardBlock .breadcrumbs ul li {
+  position: relative;
+}
+.cardSection .cardBlock .breadcrumbs ul li:not(:last-of-type)::before {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  font-size: var(--fz12);
+  transform: translateY(-50%);
+  color: #000000;
+}
+.cardSection .cardBlock .breadcrumbs ul li > a {
+  color: #000000;
+  display: block;
+  font-weight: 500;
+}
+.cardSection .cardBlock .breadcrumbs ul li > a:hover {
+  color: #828B8D;
+  opacity: 0.7;
+}
+.cardSection .cardBlock .breadcrumbs ul li > a.active {
+  color: #828B8D;
+}
+.cardSection .cardBlock .filter-mini {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 35px;
+}
+.cardSection .cardBlock .filter-mini .item {
+  display: flex;
+  gap: 18px;
+  border: 1px solid #828B8D;
+  padding: 20px;
+  align-items: center;
+}
+.cardSection .cardBlock .filter-mini .item .number {
+  font-size: 48px;
+  font-weight: 500;
+}
+.cardSection .cardBlock .filter-mini .item .cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 8px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.cardSection .cardBlock .filter-mini .item.fm_1 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 18px;
+}
+.cardSection .cardBlock .filter-mini .name {
+  font-size: fz16;
+  font-weight: 500;
+}
+.cardSection .cardBlock .filter-mini .name-desc {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.cardSection .cardBlock .filter-mini .name-desc::after {
+  content: "20%";
+  color: #ffffff;
+  padding: 5px 10px;
+  top: 0px;
+  left: 0;
+  background-color: #EB5757;
+}
+.cardSection .cardBlock .filter-mini .name-desc.active {
+  color: #EB5757;
+  font-weight: 500;
+}
+.cardSection .cardBlock .filter-mini .icon {
+  width: 40px;
+  height: 35px;
+}
+.cardSection .cardBlock .filter-mini .icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cardSection .cardBlock .filter-mini .nv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cardSection .cardBlock .filter-mini .nv .variants {
+  display: flex;
+  gap: 10px 12px;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a {
+  position: relative;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a .name {
+  font-size: var(--fz12);
+  font-weight: 500;
+  text-decoration: underline;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a .name > span {
+  cursor: pointer;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a .name:hover > ul {
+  visibility: inherit;
+  opacity: 1;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 222px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 1;
+  padding-top: 5px;
+  transition: all 0.3s;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a ul li {
+  border-left: 1px solid #CED4D7;
+  border-right: 1px solid #CED4D7;
+  background-color: #ffffff;
+  font-size: var(--fz12);
+  font-weight: 500;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a ul li:hover, .cardSection .cardBlock .filter-mini .nv .variants .item_a ul li.active {
+  background-color: #CED4D7;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a ul li:first-of-type {
+  padding-top: 15px;
+  border-top: 1px solid #CED4D7;
+}
+.cardSection .cardBlock .filter-mini .nv .variants .item_a ul li:last-of-type {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #CED4D7;
 }/*# sourceMappingURL=style.css.map */
