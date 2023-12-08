@@ -1589,8 +1589,8 @@ footer {
             }
         }
     }
-.cardSection {
-    .cardBlock {
+.cardFilterSection {
+    .cardFilterBlock {
         .breadcrumbs {
             ul {
                 list-style: none;
@@ -1750,4 +1750,201 @@ footer {
                 }
             }
     }
+}
+.cardSection {
+    .cardBlock {
+        .info-block {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 50px;
+            .item {
+                &.slider {
+                    display: grid;
+                    grid-template-columns: 120px 1fr;
+                    gap: 33px;
+                    height: 705px;
+                    .swiper {
+                        height: 100%;
+                        &.pc_slider1 {
+                            .swiper-wrapper {
+                                margin: 0;
+                                max-width: none;
+                                .swiper-slide {
+                                    padding: 20px 15px;
+                                    &.swiper-slide-thumb-active {
+                                        border: 1px solid $gray;
+                                        background-color: $lgrey;
+                                    }
+
+                                }
+                                
+                            }
+                            
+                        }
+                        &.pc_slider2 {
+                            margin: 0;
+                        }
+                        .swiper-wrapper {
+                            max-width: 0;
+                        }
+                    }
+                }
+                &.product-info {
+                    .item_c {
+                        padding: 25px 0;
+                        &:not(:last-of-type) {
+                            border-bottom: 1px solid $grey;
+                        }
+                        &:first-of-type {
+                            padding-top: 0;
+                        }
+                        &:last-of-type {
+                            padding-bottom: 0;
+                        }
+                        &.information {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+                            .article {
+                                margin-bottom: 5px;
+                                font-size: var(--fz12);
+                            }
+                            .lr {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                gap: 10px 25px;
+                                .favourites {
+                                    padding: 10px;
+                                    background-color: $white;
+                                    border-radius: 50%;
+                                    border: 1px solid $black;
+                                    @include df_ac_jcc;
+                                    cursor: pointer;
+                                    transition: all .3s;
+                                    z-index: 10;
+                                    svg {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: contain;
+                                        path {
+                                            transition: all .3s;
+                                        }
+                                    }
+                                    &:hover,
+                                    &.active {
+                                        background-color: $black;
+                                        svg {
+                                            path {
+                                                fill: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                               .rr {
+                                display: flex;
+                                align-items: center;
+                                gap: 5px 20px;
+                                .reviews {
+                                    text-decoration: underline;
+                                }
+                                .logo {
+                                    width: 45px;
+                                    height: 45px;
+                                    img {
+                                        object-fit: contain;
+                                    }
+                                }
+                                .rating-mini {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 3px;
+                                    font-size: 0;
+                                       span {
+                                           padding: 0;   
+                                           line-height: 1;
+                                           width: 19px;
+                                           height: 19px;
+                                       }
+                                       > span.active {
+                                           color: $black;
+                                           width: 20px;
+                                           height: 20px;
+                                           svg {
+                                            path {
+                                                fill: $red;
+                                                stroke-width: 0;
+                                            }
+                                           }
+                                       }
+                                   }
+                                }
+                            }
+                            > .name {
+                                font-size: var(--fz21);
+                                font-weight: 500;
+                            }
+                            .price-add {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-end;
+                                gap: 10px;
+                                .price {
+                                    font-size: var(--fz32);
+                                    font-weight: 500;
+                                }
+                                > a {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        &.function {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 25px;
+                            .item_a {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+                                .mini-content {
+                                 
+                                    &.scroll {
+                                        overflow: auto;
+                                        display: flex;
+                                    }
+                                    > ul {
+                                        margin: 0;
+                                        padding: 0;
+                                        list-style: none;
+                                        display: flex;
+                                        gap: 10px;
+                                        flex: 1;
+                                        li {
+                                            width: 50px;
+                                            height: 50px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            cursor: pointer;
+                                            background-color: $lgrey;
+                                            &.active {
+                                                background-color: $black;
+                                                color: $white;
+                                            }
+                                            &.over {
+                                                cursor: default;
+                                                pointer-events: none;
+                                                color: gray;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                
+            }
+        }
+    }
+}
 }

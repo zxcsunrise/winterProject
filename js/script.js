@@ -63,6 +63,26 @@ new Swiper(".categorySlider", {
     },
 });
 
+
+let pc_slider1 = new Swiper(".pc_slider1", {
+    spaceBetween: 2,
+    slidesPerView: 5,
+    mousewheel: true,
+    direction: "vertical",
+    freeMode: {
+        enabled:true,
+        sticky: true,
+    },
+    watchSlidesProgress: true,
+  });
+  let pc_slider2 = new Swiper(".pc_slider2", {
+    spaceBetween: 10,
+    mousewheel: true,
+    thumbs: {
+      swiper: pc_slider1,
+    },
+  });
+
 $(document).ready(function() {
     $('.btn').click(function() {
       $('.filter-options').slideToggle();
