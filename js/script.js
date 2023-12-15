@@ -7,7 +7,7 @@ $(window).resize(function() {
 })
 // href
 $("body").on('click', '[href*="#"]', function (e) {
-	var fixed_offset = 0;
+	var fixed_offset = $('header .header').height();
 	$('html,body').stop().animate({
 		scrollTop: $(this.hash).offset().top - fixed_offset
 	}, 1000);
