@@ -139,6 +139,13 @@ select {
             background-color: $black;
             color: $white;
         }
+        &.border-red {
+            border-color: $red!important;
+            color: $red;
+            &:hover {
+                color: $white;
+            }
+        }
        
     }
     &.red {
@@ -1758,6 +1765,80 @@ footer {
             grid-template-columns: 1fr 420px;
             gap: 50px;
             .item {
+                &.slider-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 50px;
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 43px;
+                        .name {
+                            font-size: var(--fz21);
+                            font-weight: 500;
+                        }
+                        .description {
+                            margin-top: -20px;
+                            font-size: var(--fz16);
+                            line-height: 30px;
+                        }
+                        .img-desc  {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 25px;
+                            align-items: center;
+                            img {
+                                width: 320px;
+                                height: auto;
+                                object-fit: contain;
+                            }
+                            
+                        }
+                        .specifications {
+                            ul {
+                                list-style: none;
+                                display: grid;
+                                grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
+                                gap: 15px 180px;
+                                padding: 0;
+                                margin: 0;
+                                li {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .name {
+                                        font-size: var(--fz16);
+                                        font-weight: 400;
+                                    }
+                                    .value {
+                                        font-size: var(--fz16);
+                                        font-weight: 500;
+                                    }
+                                }
+                            }
+                        }
+                        .media {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 30px;
+                            .video {
+                               position: relative;
+                               video {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                width: 100%;
+                               }
+                               &::before {
+                                content: '';
+                                display: block;
+                                padding-bottom: 56.25%;
+                            }
+                            }
+                            
+                        }
+                    }
+                }
                 &.slider {
                     display: grid;
                     grid-template-columns: 120px 1fr;
@@ -1907,10 +1988,41 @@ footer {
                                 flex-direction: column;
                                 gap: 20px;
                                 .mini-content {
-                                 
                                     &.scroll {
                                         overflow: auto;
                                         display: flex;
+                                    }
+                                    > .colorProductSlider {
+                                        .swiper-wrapper {
+                                            .swiper-slide {
+                                                position: relative;
+                                                padding: 16px 10px;
+                                                cursor: pointer;
+                                                .img { 
+                                                    position: absolute;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    top: 0;
+                                                    left: 0;
+                                                    padding: 16px 10px;
+                                                    img {
+                                                        object-fit: contain;
+                                                       
+                                                       
+                                                    }
+                                                }
+                                                &.active-color {
+                                                    border: 1px solid $gray;
+                                                    background-color: $lgrey;
+                                                }
+                                                &::before {
+                                                    content: '';
+                                                    display: block;
+                                                    padding-bottom: 116%;
+                                                }
+                                               
+                                            }
+                                        }
                                     }
                                     > ul {
                                         margin: 0;
@@ -1935,6 +2047,93 @@ footer {
                                                 cursor: default;
                                                 pointer-events: none;
                                                 color: gray;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .btn-block {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 15px;
+                            }
+                        }
+                        &.delivery {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 25px;
+                            >.name {
+                                font-size: var(--fz16);
+                                > span {
+                                    text-decoration: underline;
+                                } 
+                            }
+                            ul {
+                                list-style: none;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                margin: 0;
+                                padding: 0;
+                                li {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 15px;
+                                    .icon {
+                                        width: 70px;
+                                        height: 70px;
+                                        padding: 19px 12px;
+                                        border-radius: 4px;
+                                        overflow: hidden;
+                                        background-color: $lgrey;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        svg {
+                                            object-fit: contain;
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+                                    .ni {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 5px;
+                                        > .name {
+                                            > span {
+                                                 text-decoration: underline;
+                                            }
+                                           
+                                        }
+                                        .info {
+                                            display: flex;
+                                            gap: 6px;
+                                            .item_a {
+                                                &:first-of-type {
+                                                    display: flex;
+                                                    gap: 6px;
+                                                    font-weight: 500;
+                                                    &::after {
+                                                        content: '/';
+                                                        display: block;
+                                                    }
+                                                }
+                                                &:nth-child(2) {
+                                                    &:has(span) {
+                                                        display: flex;
+                                                        gap: 28px;
+                                                        > span {
+                                                            &:nth-child(2) {
+                                                                text-decoration: line-through;
+                                                            }
+                                                        }
+                                                    }
+                                                    > span {
+                                                        &.free {
+                                                            color: $green;
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }

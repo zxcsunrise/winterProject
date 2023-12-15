@@ -65,6 +65,7 @@ new Swiper(".categorySlider", {
 
 
 let pc_slider1 = new Swiper(".pc_slider1", {
+    loop: true,
     spaceBetween: 2,
     slidesPerView: 5,
     mousewheel: true,
@@ -89,7 +90,16 @@ $(document).ready(function() {
       $('.btn-block').addClass('visible')
     });
   });
-  
+
+  new Swiper(".colorProductSlider", {
+    slidesPerView: 6,
+    spaceBetween: 2,
+    freeMode: {
+        enabled:true,
+        sticky: true,
+    },
+});
+
 
 $('.btn').on('click',function() {
     $('btn-block').removeClass('visible');
@@ -532,3 +542,17 @@ $('.variants .item_a ul li').on('click',function() {
     $(this).addClass('active');  
   });
 
+$('.cardSection .item_a .mini-content .swiper .swiper-slide').on('click', function(){
+    $(this).parents('.swiper').find('.swiper-slide').removeClass('active-color')
+    $(this).addClass('active-color')
+
+    let url = $(this).find('.img img').attr('src'),
+    slide_main = $('.cardSection .info-block .item.slider .swiper.pc_slider1 .swiper-slide')
+    $(slide_main).each(function(index, value) {
+        if ($(value).find('img').attr('src') === url) {
+            pc_slider1.slideTo($(value).attr('data-swiper-slide-index'))
+            pc_slider2.slideTo($(value).attr('data-swiper-slide-index'))
+        }
+       
+    })
+})
