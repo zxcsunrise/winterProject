@@ -31,6 +31,7 @@ $font: 'Grtsk Peta';
 :root {
     --container: 1360px;
     --fz48: 48px;
+    --fz90: 90px;
     --fz32: 32px;
     --fz21: 21px;
     --fz18: 18px;
@@ -2146,4 +2147,169 @@ footer {
         }
     }
 }
+}
+.reviewsProductSection {
+    .reviewsProductBlock {
+        display: flex;
+        justify-content: space-between;
+        .main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            max-width: 890px;
+            >.name {
+                font-size: var(--fz21);
+                font-weight: 500;
+                margin-bottom: 35px;
+                position: relative;
+                display: flex;
+                font-size: var(--fz21);
+                align-items: center;
+                gap: 15px;
+                &::after {
+                    content: attr(data-count);
+                    display: block;
+                    font-size: var(--fz21);
+                    color: $dgrey;
+                    font-weight: 500;
+                }
+            }
+            form {
+                display: flex;
+                border: 1px solid $grey;
+                background-color: $lgrey;
+                padding: 10px;
+                align-items: center;
+                border-radius: 4px;
+                .rb {
+                    display: flex;
+                    gap: 40px;
+                    .rating-mini {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+                input {
+                    border: 0;
+                    background-color: $lgrey;
+                }
+            }
+            .reviews {
+                .info-block {
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 55px;
+                    padding-left: 55px;
+                    .item_a {
+                        display: flex;
+                        gap: 70px;
+                        align-items: center;
+                        .rd {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                            .rating-mini {
+                                display: flex;
+                                gap: 10px;
+                            }
+                            .date {
+                                color: $grey;
+                            }
+                            span {
+                                &.active {
+                                    svg {
+                                        fill: $red;
+                                        stroke-width: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .nt {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+                            .name {
+                                font-weight: 500;
+                                line-height: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .rating {
+            margin-top: 55px;
+            max-width: 350px;
+            flex: 1;
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                    .ball {
+                        display: flex;
+                        align-items: center;
+                        width: 25px;
+                        gap: 6px;
+                        font-size: 16px;
+                        .rating-mini {
+                            span {
+                                &.active {
+                                    svg {
+                                        fill: $red;
+                                        stroke-width: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .line {
+                        display: flex;
+                        flex: 1;
+                        &::before {
+                            content: '';
+                            height: 2px;
+                            width: 100%;
+                            background-color: $grey;
+                            flex: 1;
+                            position: relative;
+                        }
+                    }
+                    .count {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .middle-rating {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0 15px;
+                .rate {
+                    font-size: var(--fz90);
+                }
+                .rating-mini {
+                    display: flex;
+                    gap: 10px;
+                    span {
+                        &.active {
+                            svg {
+                                fill: $red;
+                                stroke-width: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

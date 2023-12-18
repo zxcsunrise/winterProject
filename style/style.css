@@ -1,6 +1,7 @@
 :root {
   --container: 1360px;
   --fz48: 48px;
+  --fz90: 90px;
   --fz32: 32px;
   --fz21: 21px;
   --fz18: 18px;
@@ -2081,4 +2082,152 @@ footer .footer .footer_3 .desc {
 }
 .cardSection .cardBlock .info-block .item.product-info .item_c.delivery ul li .ni .info .item_a:nth-child(2) > span.free {
   color: #219653;
+}
+
+.reviewsProductSection .reviewsProductBlock {
+  display: flex;
+  justify-content: space-between;
+}
+.reviewsProductSection .reviewsProductBlock .main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 890px;
+}
+.reviewsProductSection .reviewsProductBlock .main > .name {
+  font-size: var(--fz21);
+  font-weight: 500;
+  margin-bottom: 35px;
+  position: relative;
+  display: flex;
+  font-size: var(--fz21);
+  align-items: center;
+  gap: 15px;
+}
+.reviewsProductSection .reviewsProductBlock .main > .name::after {
+  content: attr(data-count);
+  display: block;
+  font-size: var(--fz21);
+  color: #828B8D;
+  font-weight: 500;
+}
+.reviewsProductSection .reviewsProductBlock .main form {
+  display: flex;
+  border: 1px solid #CED4D7;
+  background-color: #F9F9F9;
+  padding: 10px;
+  align-items: center;
+  border-radius: 4px;
+}
+.reviewsProductSection .reviewsProductBlock .main form .rb {
+  display: flex;
+  gap: 40px;
+}
+.reviewsProductSection .reviewsProductBlock .main form .rb .rating-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .main form input {
+  border: 0;
+  background-color: #F9F9F9;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  padding-left: 55px;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .rd {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .rd .rating-mini {
+  display: flex;
+  gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .rd .date {
+  color: #CED4D7;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .rd span.active svg {
+  fill: #EB5757;
+  stroke-width: 0;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .nt {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.reviewsProductSection .reviewsProductBlock .main .reviews .info-block .item_a .nt .name {
+  font-weight: 500;
+  line-height: 25px;
+}
+.reviewsProductSection .reviewsProductBlock .rating {
+  margin-top: 55px;
+  max-width: 350px;
+  flex: 1;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li .ball {
+  display: flex;
+  align-items: center;
+  width: 25px;
+  gap: 6px;
+  font-size: 16px;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li .ball .rating-mini span.active svg {
+  fill: #EB5757;
+  stroke-width: 0;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li .line {
+  display: flex;
+  flex: 1;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li .line::before {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #CED4D7;
+  flex: 1;
+  position: relative;
+}
+.reviewsProductSection .reviewsProductBlock .rating ul li .count {
+  font-size: 16px;
+}
+.reviewsProductSection .reviewsProductBlock .rating .middle-rating {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0 15px;
+}
+.reviewsProductSection .reviewsProductBlock .rating .middle-rating .rate {
+  font-size: var(--fz90);
+}
+.reviewsProductSection .reviewsProductBlock .rating .middle-rating .rating-mini {
+  display: flex;
+  gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .rating .middle-rating .rating-mini span.active svg {
+  fill: #EB5757;
+  stroke-width: 0;
 }/*# sourceMappingURL=style.css.map */
