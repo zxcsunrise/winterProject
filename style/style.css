@@ -2018,6 +2018,9 @@ footer .footer .footer_3 .desc {
 }
 .cardSection .cardBlock .info-block .item.product-info .item_c.delivery > .name {
   font-size: var(--fz16);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .cardSection .cardBlock .info-block .item.product-info .item_c.delivery > .name > span {
   text-decoration: underline;
@@ -2201,14 +2204,8 @@ footer .footer .footer_3 .desc {
 .reviewsProductSection .reviewsProductBlock .rating ul li .line {
   display: flex;
   flex: 1;
-}
-.reviewsProductSection .reviewsProductBlock .rating ul li .line::before {
-  content: "";
-  height: 2px;
-  width: 100%;
   background-color: #CED4D7;
-  flex: 1;
-  position: relative;
+  height: 2px;
 }
 .reviewsProductSection .reviewsProductBlock .rating ul li .count {
   font-size: 16px;
